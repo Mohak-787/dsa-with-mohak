@@ -1,0 +1,17 @@
+/**
+* - Solution in Python3
+*/
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        window = set()
+
+        for index, n in enumerate(nums, start=0):
+            if n in window:
+                return True
+
+            window.add(n)
+
+            if len(window) > k:
+                window.remove(nums[index - k])
+        
+        return False

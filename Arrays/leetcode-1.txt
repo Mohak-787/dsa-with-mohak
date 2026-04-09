@@ -1,0 +1,14 @@
+/**
+* - Solution in Python3
+*/
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+
+        for index, n in enumerate(nums, start=0):
+            difference = target - n
+            if difference in seen:
+                return [index, seen[difference]]
+            seen[n] = index
+        
+        return []
