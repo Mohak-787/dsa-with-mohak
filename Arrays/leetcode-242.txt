@@ -16,3 +16,15 @@ class Solution:
                 return False
         
         return True
+
+/**
+* - Step-by-Step Algorithm
+*/
+Step 1: First, check if the lengths of the two strings s and t are equal. If they are not equal, return False immediately.
+Step 2: Create an empty dictionary called frequency to store character counts.
+Step 3: Go through both strings at the same time, character by character.
+Step 4: For each position, increase the count of the character from string s in the dictionary.
+Step 5: At the same time, decrease the count of the character from string t in the dictionary.
+Step 6: After processing all characters, check the dictionary values.
+Step 7: If any value in the dictionary is not zero, return False (meaning the strings are not anagrams).
+Step 8: If all values are zero, return True (meaning the strings are anagrams).

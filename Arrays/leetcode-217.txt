@@ -18,3 +18,22 @@ class Solution:
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return len(nums) != len(set(nums))
+
+/**
+* - Step-by-Step Algorithm for Solution 1
+*/
+Step 1: Create an empty set called seen to store numbers you have already encountered.
+Step 2: Go through each number in the list one by one.
+Step 3: For each number, check if it is already in the seen set.
+Step 4: If the number is already in the set, return True because a duplicate is found.
+Step 5: If the number is not in the set, add it to the seen set.
+Step 6: Continue this process until all numbers are checked.
+Step 7: If no duplicates are found, return False.
+
+/**
+* - Step-by-Step Algorithm for Solution 2
+*/
+Step 1: Convert the list into a set (which automatically removes duplicates).
+Step 2: Compare the length of the original list with the length of the set.
+Step 3: If both lengths are different, return True (meaning duplicates exist).
+Step 4: If both lengths are the same, return False (no duplicates found).

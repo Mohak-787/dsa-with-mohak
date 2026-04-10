@@ -1,0 +1,21 @@
+/**
+* - Solution 1 in Python3
+*/
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        freq = {}
+        for n in nums:
+            freq[n] = freq.get(n, 0) + 1
+        sorted_nums = sorted(freq, key=lambda x: freq[x], reverse=True)
+        return sorted_nums[:k]
+
+/**
+* - Step-by-Step Algorithm for Solution 1
+*/
+Step 1: Create an empty dictionary called freq to store the frequency of each number.
+Step 2: Go through each number in the list nums.
+Step 3: For each number, increase its count in the freq dictionary. If it is not present, initialize it to 1.
+Step 4: After counting all frequencies, sort the keys of the dictionary based on their frequency values in descending order.
+Step 5: Store this sorted list of numbers in sorted_nums.
+Step 6: Select the first k elements from sorted_nums.
+Step 7: Return these k elements as the final result.

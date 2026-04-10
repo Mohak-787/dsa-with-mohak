@@ -12,3 +12,15 @@ class Solution:
             seen[n] = index
         
         return []
+
+/**
+* - Step-by-Step Algorithm
+*/
+Step 1: Start with an empty dictionary (or map) called seen to store numbers and their indices.
+Step 2: Go through each number in the list one by one, along with its index.
+Step 3: For the current number, calculate the difference by subtracting it from the target.
+Step 4: Check if this difference already exists in the seen dictionary.
+Step 5: If it exists, return the current index and the index of the difference from the dictionary.
+Step 6: If it does not exist, store the current number in the dictionary with its index.
+Step 7: Continue this process until the loop ends.
+Step 8: If no pair is found after checking all numbers, return an empty list.

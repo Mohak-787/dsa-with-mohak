@@ -17,3 +17,15 @@ class Solution:
             postfix *= nums[i]
 
         return output
+
+/**
+* - Step-by-Step Algorithm
+*/
+Step 1: Find the length of the array nums and store it in n.
+Step 2: Create an output array of size n and initialize all values to 1. This array will store the final result.
+Step 3: Initialize a variable prefix to 1. This will keep track of the product of all elements to the left of each index.
+Step 4: Traverse the array from left to right. For each index, store the current value of prefix in the output array, then update prefix by multiplying it with the current element.
+Step 5: Initialize another variable postfix to 1. This will keep track of the product of all elements to the right of each index.
+Step 6: Traverse the array from right to left. For each index, multiply the current value in the output array by postfix, then update postfix by multiplying it with the current element.
+Step 7: After completing both passes, the output array will contain the product of all elements except the current one.
+Step 8: Return the output array.
