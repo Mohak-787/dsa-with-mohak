@@ -1,0 +1,63 @@
+/**
+* - Solution 1 in Python3
+*/
+from typing import List
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        output = {}
+
+        for element in strs:
+            alpha = [0] * 26
+
+            for char in element:
+                alpha[ord(char) - ord('a')] += 1
+
+            key = tuple(alpha)
+
+            if key in output:
+                output[key].append(element)
+            else:
+                output[key] = [element]
+
+        return list(output.values())
+
+/**
+* - Solution 2 in Python3
+*/
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        output = {}
+
+        for word in strs:
+            key = "".join(sorted(word))
+
+            if key in output:
+                output[key].append(word)
+            else:
+                output[key] = [word]
+
+        return list(output.values())
+
+/**
+* - Step-by-Step Algorithm for Solution 1
+*/
+Step 1: Initialize an empty dictionary called output to store groups of anagrams.
+Step 2: Iterate through each string element in the input list strs.
+Step 3: For every string, create a list called alpha of size 26 (initialized with zeros) to represent the count of each letter from 'a' to 'z'.
+Step 4: Iterate through every character char in the current string and increment its corresponding index in the alpha list using its ASCII value.
+Step 5: Convert the alpha list into a tuple so it can be used as a dictionary key (since lists are mutable and cannot be keys).
+Step 6: Check if this key already exists in the output dictionary.
+Step 7: If the key exists, append the current element to the list associated with that key; otherwise, create a new entry with the key and a list containing the element.
+Step 8: After processing all strings, return all the values of the output dictionary as a list of lists.
+
+/**
+* - Step-by-Step Algorithm for Solution 2
+*/
+Step 1: Initialize an empty dictionary called output to act as a map for categorized anagrams.
+Step 2: Iterate through each word in the input list strs.
+Step 3: Sort the characters of the word alphabetically and join them back into a single string to create a unique key.
+Step 4: Check if this sorted key is already present in the output dictionary.
+Step 5: If the key is found, add the original (unsorted) word to the corresponding list in the dictionary.
+Step 6: If the key is not found, initialize a new dictionary entry with the key and a list containing the current word.
+Step 7: Once the loop finishes, retrieve all value lists from the dictionary.
+Step 8: Return the collection of grouped anagrams as the final output.
