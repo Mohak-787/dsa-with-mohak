@@ -1,0 +1,31 @@
+/**
+* - Solution in Python3
+*/
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        buy = prices[0]
+        sell = prices[0]
+        profit = 0
+
+        for price in prices:
+            if price < buy:
+                buy = price
+                sell = price
+            elif price > sell:
+                sell = price
+                profit = max(profit, sell - buy)
+                
+        return profit
+
+/**
+* - Step-by-Step Algorithm
+*/
+Step 1: Initialize a variable buy with the first element of the prices list to track the lowest purchase price found so far.
+Step 2: Initialize a variable sell with the first element of the prices list to track the potential selling price for the current buying window.
+Step 3: Initialize a variable profit to 0 to keep track of the maximum profit discovered during the iteration.
+Step 4: Iterate through each price in the prices list one by one.
+Step 5: For each price, check if the current price is lower than the existing buy price.
+Step 6: If it is lower, update both buy and sell to this new price. This effectively "resets" the trading window because a lower buy price offers a better opportunity for future profit.
+Step 7: If the price is not a new low, check if the current price is greater than the existing sell price.
+Step 8: If it is higher, update sell to the current price and calculate the new potential profit (sell−buy). Update the profit variable only if this new calculation is greater than the current maximum profit.
+Step 9: After the loop finishes checking all prices, return the final value of profit.

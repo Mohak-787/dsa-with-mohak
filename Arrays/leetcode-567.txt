@@ -1,0 +1,41 @@
+/**
+* - Solution in Python3
+*/
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        if len(s1) > len(s2):
+            return False
+
+        need = [0] * 26
+        window = [0] * 26
+
+        for c in s1:
+            need[ord(c) - ord('a')] += 1
+
+        left = 0
+
+        for right in range(len(s2)):
+            window[ord(s2[right]) - ord('a')] += 1
+
+            if right - left + 1 > len(s1):
+                window[ord(s2[left]) - ord('a')] -= 1
+                left += 1
+
+            if window == need:
+                return True
+
+        return False
+
+/**
+* - Step-by-Step Algorithm
+*/
+Step 1: Compare the lengths of s1 and s2. If s1 is longer than s2, return False immediately, as s2 cannot contain a permutation of a longer string.
+Step 2: Initialize two frequency arrays (or lists), need and window, each of size 26 to represent the character counts for the English alphabet ('a' through 'z').
+Step 3: Iterate through string s1 and populate the need array by incrementing the count at the index corresponding to each character (calculated as ord(char) - ord('a')).
+Step 4: Initialize a variable left to 0 to represent the starting boundary of the sliding window in string s2.
+Step 5: Iterate through string s2 using a variable right as the leading boundary of the sliding window.
+Step 6: For every character at position right, increment its corresponding count in the window array.
+Step 7: Check if the current window size (right - left + 1) has exceeded the length of s1.
+Step 8: If the window is too large, decrement the count of the character at position left in the window array and increment left by 1 to shift the window forward.
+Step 9: After adjusting the window, compare the window array to the need array. If they are identical, it means the current window in s2 is a permutation of s1; return True.
+Step 10: If the loop completes without finding a match, return False.
